@@ -1,0 +1,9 @@
+fields:
+  pageTitle: Articles
+placeholders:
+  jss-main:
+  - componentName: ContentBlock
+    fields:
+      heading: Article List
+      content: |
+        <p>articles articles</p>

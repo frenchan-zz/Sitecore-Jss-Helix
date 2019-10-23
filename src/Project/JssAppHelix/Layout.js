@@ -3,6 +3,7 @@ import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-r
 import { NavLink } from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
 import Helmet from 'react-helmet';
+import ConditionalStaticPlaceholder from '../../Foundation/Placeholders/ConditionalStaticPlaceholder'
 
 // Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
 // without needing extra CSS in the sample app. Remove it in package.json as well if it's removed here.
@@ -70,11 +71,13 @@ const Layout = ({ route }) => (
     <VisitorIdentification />
 
     <Navigation />
-
+    <ConditionalStaticPlaceholder name="jss-navigation" />
     {/* root placeholder for the app, which we add components to using route data */}
     <div className="container">
-      <Placeholder name="jss-main" rendering={route} />
+      <Placeholder name="jss-main" rendering={route} route={route} />
     </div>
+    <ConditionalStaticPlaceholder name="jss-footer" />
+
   </React.Fragment>
 );
 

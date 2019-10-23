@@ -62,7 +62,7 @@ function generateComponentFactory() {
   const registrations = [];
 
   fs.readdirSync(componentRootPath).forEach((srcSubFolder) => {
-    if (srcSubFolder !== "Foundation" && srcSubFolder !== "Feature" && srcSubFolder !== "Project") return;
+    if (srcSubFolder !== "Foundation" && srcSubFolder !== "Feature" && srcSubFolder !== "Project" && srcSubFolder !== "layouts") return;
     let srcSubFolderFullPath = path.join(componentRootPath, srcSubFolder);
 
     fs.readdirSync(srcSubFolderFullPath).forEach((moduleFolder) => {

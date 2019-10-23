@@ -19,7 +19,19 @@ fields:
 # Define the page layout starting at the root placeholder - in this case, 'jss-main'
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
+  jss-navigation:
+  - componentName: ContentBlock
+    fields:
+      heading: Content Block Here
   jss-main:
+  - componentName: HeroBanner
+    fields:
+      title: This is a HeroBanner
+      paragraph: Thanks for using Hero Banner. Here are some high fives!!
+      linkDestination: 
+        href: /contact
+        text: link text
+      linkText: Click here
   - componentName: ContentBlock
     fields:
       heading: Welcome to Sitecore JSS
@@ -59,5 +71,12 @@ placeholders:
               <li>Delete <code>/data/dictionary/*.yml</code></li>
             </ol>
           </div>
-
+  jss-footer:
+    - componentName: Footer
+      fields:
+        copyrightStatement: This is copyright!!
+        termsAndCondition: Terms and condition
+        links:
+          - id: styleguide-content-list-field-shared-1
+          - id: styleguide-content-list-field-shared-2
 

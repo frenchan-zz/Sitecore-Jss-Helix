@@ -7,16 +7,14 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * @param {Manifest} manifest Manifest instance to add components to
  */
 export default function(manifest) {
-  manifest.addComponent({
+  manifest.addRouteType({
     name: 'Article',
+    displayName: 'Article',
     icon: SitecoreIcon.DocumentTag,
     fields: [
-      { name: 'title', type: CommonFieldTypes.SingleLineText },
-    ],
-    /*
-    If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
-    register it here, or components added to that placeholder will not be returned by Sitecore:
-    placeholders: ['exposed-placeholder-name']
-    */
+      { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
+      { name: 'articleDate', displayName: 'Date', type: CommonFieldTypes.Date, standardValue: '$now' },
+      { name: 'mainContent', displayName: 'Main Content', type: CommonFieldTypes.RichText }
+    ]
   });
 }

@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 /**
  * Adds the HeroBanner component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when 'jss manifest' is run.
@@ -8,15 +8,21 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function(manifest) {
     manifest.addComponent({
         name: 'HeroBanner',
-        icon: SitecoreIcon.DocumentTag,
-        fields: [
-            { name: 'heading', type: CommonFieldTypes.SingleLineText },
-        ],
-        /*
-        If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
-        register it here, or components added to that placeholder will not be returned by Sitecore:
-        placeholders: ['exposed-placeholder-name']
-        */
+        displayName: 'Hero Banner',
+        icon: 'Apps/32x32/Pictures.png',
+        inherits: ['Base-Hero-Banner-Template']
     });
+
+    manifest.addTemplate({
+        name: 'Base-Hero-Banner-Template',
+        displayName: '_Base Hero Banner',
+        fields: [
+            { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText, section: 'Content' },
+            { name: 'paragraph', displayName: 'Paragraph', type: CommonFieldTypes.MultiLineText, section: 'Content' },
+            { name: 'linkText', displayName: 'Link Text', type: CommonFieldTypes.SingleLineText, section: 'Content' },
+            { name: 'linkDestination', displayName: 'Link Description', type: CommonFieldTypes.GeneralLink, section: 'Content' },
+            { name: 'bannerImage', displayName: 'Banner Image', type: CommonFieldTypes.Image, section: 'Media' }
+        ]
+      });
 }
     

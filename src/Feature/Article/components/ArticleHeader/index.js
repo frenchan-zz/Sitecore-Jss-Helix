@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, RichText, DateField } from '@sitecore-jss/sitecore-jss-react';
+import { withSitecoreContext, Text, RichText, DateField } from '@sitecore-jss/sitecore-jss-react';
 
-const Article = ({fields}) => {
+const ArticleHeader = ({ sitecoreContext: { route: { fields } } }) => {
     return (
         <div>
             <article>
@@ -9,7 +9,7 @@ const Article = ({fields}) => {
                     <Text field={fields.title} class="" />
                 </h1>
                 <span>
-                    <DateField field={fields.articleDate} />
+                    <DateField field={fields.articleDate} render={date => date.toLocaleDateString()} />
                 </span>
                 <div>
                     <RichText field={fields.mainContent} />
@@ -19,4 +19,4 @@ const Article = ({fields}) => {
     );
 };
 
-export default Article;
+export default withSitecoreContext()(ArticleHeader);

@@ -1,0 +1,7 @@
+fields:
+  pageTitle: Hero Banner
+placeholders:
+  jss-main: 
+  - componentName: HeroBanner
+    fields:
+      heading: This is a Hero Banner

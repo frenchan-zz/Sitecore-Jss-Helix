@@ -6,7 +6,9 @@
   "config": {
     "appName": "jss-app-helix",
     "rootPlaceholders": [
-      "jss-main"
+      "jss-navigation",
+      "jss-main",
+      "jss-footer"
     ],
     "sitecoreDistPath": "/dist/jss-app-helix",
     "sitecoreConfigPath": "/App_Config/Include/zzz",

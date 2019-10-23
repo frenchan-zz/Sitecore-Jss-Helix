@@ -1,0 +1,10 @@
+id: article-first
+template: article
+fields:
+  pageTitle: First Article | Sitecore JSS
+  title: hello
+  articleDate: '2019-04-04T08:00:00.000Z'
+placeholders:
+  jss-main:
+  - componentName: ArticleHeader
+     
