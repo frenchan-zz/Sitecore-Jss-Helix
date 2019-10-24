@@ -1,0 +1,9 @@
+id: navigation-meta-list-item-1
+displayName: Meta Link Item 1
+# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
+template: Navigation-ContentList-Item-Template
+fields:
+  displayName: Carrers
+  linkDestination: 
+    href: /carrers
+    text: Carrers

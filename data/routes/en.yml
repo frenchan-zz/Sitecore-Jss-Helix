@@ -16,13 +16,15 @@ id: home-page
 # Define route level fields in /sitecore/definitions/routes.sitecore
 fields:
   pageTitle: Welcome to Sitecore JSS
+  metaDescription: Meta descriptoon data
+  noIndex: false
+  canonical: /
 # Define the page layout starting at the root placeholder - in this case, 'jss-main'
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-navigation:
-  - componentName: ContentBlock
-    fields:
-      heading: Content Block Here
+  - id: meta-nav-block
+  - id: primary-nav-block
   jss-main:
   - componentName: HeroBanner
     fields:
@@ -77,6 +79,6 @@ placeholders:
         copyrightStatement: This is copyright!!
         termsAndCondition: Terms and condition
         links:
-          - id: styleguide-content-list-field-shared-1
-          - id: styleguide-content-list-field-shared-2
+          - id: navigation-footer-list-item-1
+          - id: navigation-footer-list-item-2
 

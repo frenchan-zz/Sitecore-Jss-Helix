@@ -10,11 +10,11 @@ export default function(manifest) {
   manifest.addRouteType({
     name: 'Article',
     displayName: 'Article',
-    icon: SitecoreIcon.DocumentTag,
+    icon: 'Applications/32x32/document_cup.png',
     fields: [
-      { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
-      { name: 'articleDate', displayName: 'Date', type: CommonFieldTypes.Date, standardValue: '$now' },
-      { name: 'mainContent', displayName: 'Main Content', type: CommonFieldTypes.RichText }
+      { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText, section: 'Article Content' },
+      { name: 'articleDate', displayName: 'Date', type: CommonFieldTypes.Date, standardValue: '$now', section: 'Article Content' },
+      { name: 'mainContent', displayName: 'Main Content', type: CommonFieldTypes.RichText, section: 'Article Content' }
     ]
   });
 }

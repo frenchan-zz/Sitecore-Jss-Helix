@@ -1,0 +1,7 @@
+id: meta-nav-block
+componentName: MetaNavigation
+fields:
+  links: 
+    - id: navigation-meta-list-item-1
+    - id: navigation-meta-list-item-2
+    - id: navigation-meta-list-item-3

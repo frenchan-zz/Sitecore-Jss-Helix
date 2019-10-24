@@ -2,6 +2,65 @@ a[target='_blank']:after {
   content: '\1F5D7'
 }
 
+.navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
+}
+
+.navbar-nav > li:first-child a, .ftr-links li:first-child a, .breadcrumb-links li:first-child {
+  padding-left: 0;
+}
+
+
+#meta-nav {
+  background-color: #eee;
+}
+.meta-nav{
+  float:right;
+  font-size:12px;
+  margin:0;
+  padding:5px 0;
+}
+.meta-nav li {
+  float: left;
+  list-style: none;
+}
+.meta-nav li a{
+  display:inline-block;
+  padding:0 5px 0 5px;
+  color:#000;
+}
+
+.ftr-links li, .breadcrumb-links li {
+  float: left;
+  list-style: none;
+}
+
+.breadcrumb-links li:after {
+  content: " > ";
+}
+
+.ftr-links li:after {
+  content: " | ";
+}
+
+.ftr-links li:last-child:after, .breadcrumb-links li:last-child:after {
+  content: "";
+}
+
+.ftr-links li a, .breadcrumb-links li {
+  padding: 0 5px 0 5px;
+}
+
+.ftr-tandc {
+  font-size: 0.8em;
+  padding-top: 20px;
+}
+
+.ftr-copyright {
+  margin-bottom: 20px;
+}
+
 /*
   Hides Sitecore Experience Editor markup,
   if you run the app in connected mode while the Sitecore cookies

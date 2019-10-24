@@ -1,6 +1,8 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
+  jss-navigation:
+  - id: meta-nav-block
   jss-main:
   - componentName: ContentBlock
     fields:

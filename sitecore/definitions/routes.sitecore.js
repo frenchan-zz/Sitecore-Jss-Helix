@@ -28,9 +28,10 @@ export default function addRoutesToManifest(manifest) {
         name: 'pageTitle',
         displayName: 'Page Title',
         section: appTemplateSection,
-        type: CommonFieldTypes.SingleLineText,
+        type: CommonFieldTypes.SingleLineText
       },
     ],
+    inherits: 'MetaData-Template',
     insertOptions: ['App Route'],
   });
 

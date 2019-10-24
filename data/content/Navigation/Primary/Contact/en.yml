@@ -1,0 +1,9 @@
+id: navigation-primary-list-contact
+displayName: Contact
+# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
+template: Navigation-ContentList-Item-Template
+fields:
+  displayName: Contact
+  linkDestination: 
+    href: /contact
+    text: Contact

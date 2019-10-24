@@ -16,8 +16,8 @@ const Footer = ({fields}) => {
                     <ul className="ftr-links">
                         { fields.links.map((listItem, index) =>
                             <li key={`item-${index}`}>
-                                <Link field={listItem.fields.url} className="nav-link">
-                                    <Text field={listItem.fields.name} />
+                                <Link field={listItem.fields.linkDestination} className="nav-link">
+                                    <Text field={listItem.fields.displayName} />
                                 </Link>
                             </li>
                         )}

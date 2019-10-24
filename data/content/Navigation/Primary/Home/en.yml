@@ -1,0 +1,9 @@
+id: navigation-primary-list-home
+displayName: Home
+# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
+template: Navigation-ContentList-Item-Template
+fields:
+  displayName: Home
+  linkDestination: 
+    href: /
+    text: Home

@@ -1,0 +1,8 @@
+id: primary-nav-block
+componentName: PrimaryNavigation
+fields:
+  links: 
+    - id: navigation-primary-list-home
+    - id: navigation-primary-list-articles
+    - id: navigation-primary-list-about
+    - id: navigation-primary-list-contact
