@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Text, getFieldValue, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
-const Video = ({ fields, sitecoreContext }) => {
+const Youtube = ({ fields, sitecoreContext }) => {
 
     const videoId = getFieldValue(fields, 'videoId'),
           videoHeight = getFieldValue(fields, 'videoHeight') || '315',
           videoWidth = getFieldValue(fields, 'videoWidth') || '100%',
-          videoControls = getFieldValue(fields, 'videoControls') || '1'
+          videoControls = getFieldValue(fields, 'videoControls') || '1',
           src = `https://www.youtube.com/embed/${videoId}?controls=${videoControls}`,
           thumbnail = `https://img.youtube.com/vi/${videoId}/0.jpg`,
           isEditing = sitecoreContext && sitecoreContext.pageEditing;
@@ -24,5 +24,5 @@ const Video = ({ fields, sitecoreContext }) => {
         </React.Fragment>
     );
 };
-export default withSitecoreContext()(Video);
+export default withSitecoreContext()(Youtube);
     
