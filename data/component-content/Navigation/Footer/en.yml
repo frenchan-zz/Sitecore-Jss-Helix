@@ -1,0 +1,8 @@
+id: footer-nav-block
+componentName: Footer
+fields:
+  copyrightStatement: © 2019 Sitecore Jss Helix Project
+  termsAndCondition: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin, nulla nec condimentum ultrices, magna nisl porttitor nunc, vitae pretium nunc arcu nec justo. Integer hendrerit risus sed elit dictum volutpat. Suspendisse aliquam nisl sem, eget viverra lorem finibus eget. Suspendisse tempor facilisis augue. Fusce porttitor pharetra elit nec finibus. Vestibulum egestas mi vitae maximus mattis. Quisque tempor porttitor nisl. Maecenas fringilla risus eu nisl lacinia, ut ornare nibh ultrices. Ut lorem massa, venenatis eu tincidunt ac, efficitur non enim. Curabitur elementum imperdiet felis, non molestie leo ornare nec.
+  links:
+    - id: navigation-footer-list-item-1
+    - id: navigation-footer-list-item-2

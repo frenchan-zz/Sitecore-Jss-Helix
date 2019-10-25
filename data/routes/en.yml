@@ -74,11 +74,5 @@ placeholders:
             </ol>
           </div>
   jss-footer:
-    - componentName: Footer
-      fields:
-        copyrightStatement: This is copyright!!
-        termsAndCondition: Terms and condition
-        links:
-          - id: navigation-footer-list-item-1
-          - id: navigation-footer-list-item-2
+    - id: footer-nav-block
 

@@ -7,3 +7,5 @@ placeholders:
       heading: Article List
       content: |
         <p>articles articles</p>
+  jss-footer:
+  - id: footer-nav-block
