@@ -1,6 +1,6 @@
 id: navigation-footer-list-item-2
 displayName: Footer Link Item 2
-template: Navigation-ContentList-Item-Template
+template: MenuItem
 fields:
   displayName: Footer Link 2
   linkDestination: 

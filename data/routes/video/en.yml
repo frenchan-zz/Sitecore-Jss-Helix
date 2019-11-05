@@ -1,0 +1,16 @@
+fields:
+  pageTitle: Video
+placeholders:
+  jss-navigation:
+  - id: meta-nav-block
+  - id: primary-nav-block
+  jss-main:
+  - componentName: Youtube
+    fields:
+  - componentName: RichText
+    fields:
+        richText: |
+                <p>This is a cool RichTExt!! <b>YEs!!</b> Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p>
+                <marquee>Hello, my name is Katja!!!!!!!</marquee>
+  jss-footer:
+  - id: footer-nav-block

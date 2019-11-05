@@ -1,7 +1,7 @@
 id: navigation-footer-list-item-1
 displayName: Footer Link Item 1
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
-template: Navigation-ContentList-Item-Template
+template: MenuItem
 fields:
   displayName: Footer Link 1
   linkDestination: 

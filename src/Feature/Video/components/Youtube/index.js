@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, getFieldValue, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
+import { getFieldValue, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
 const Youtube = ({ fields, sitecoreContext }) => {
 
@@ -15,11 +15,11 @@ const Youtube = ({ fields, sitecoreContext }) => {
         <React.Fragment>
             {
                 !isEditing &&
-                <iframe width={videoWidth} height={videoHeight} src={src} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe title="youtube" width={videoWidth} height={videoHeight} src={src} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             }
             {
                 isEditing &&
-                <img src={thumbnail} />
+                <img title="youtube" alt="youtube" src={thumbnail} />
             }
         </React.Fragment>
     );

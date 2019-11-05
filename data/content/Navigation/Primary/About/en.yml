@@ -1,7 +1,7 @@
 id: navigation-primary-list-about
 displayName: About
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
-template: Navigation-ContentList-Item-Template
+template: MenuItem
 fields:
   displayName: About
   linkDestination: 

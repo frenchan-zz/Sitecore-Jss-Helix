@@ -12,10 +12,13 @@ export default function(manifest) {
         displayName: 'Primary Navigation',
         icon: SitecoreIcon.DocumentTag,
         fields: [
-            { name: 'links', displayName: 'Links', type: CommonFieldTypes.ContentList, source: `dataSource=/sitecore/content/${
-                packageJson.config.appName
-              }/Content/Navigation/Primary` }
+            { 
+                name: 'links', 
+                displayName: 'Links', 
+                type: CommonFieldTypes.ContentList, 
+                source: `dataSource=/sitecore/content/${
+                    packageJson.config.appName
+                }/Content/Navigation/Primary&IncludeTemplateForSelection=MenuItem` }
         ],
-
     });
 }

@@ -1,37 +1,103 @@
 import * as React from 'react';
 import { Link, Text } from '@sitecore-jss/sitecore-jss-react';
+import GraphQLData from '../../../../Foundation/GraphQL/GraphQLData';
+import gql from 'graphql-tag'
 
-const PrimaryNavigation = (props) => {
-    return (
-        <nav className="navbar navbar-inverse">
-            <div className="container">
-                <div className="row">
-                    <div id="navbar" className="navbar-collapse collapse">
-                        {
-                            props.fields.links &&
-                                buildNavigation(props.fields.links)
+const NavigationQuery = gql`
+query ConnectedQuery($datasource: String!) {
+    data:datasource(value: $datasource) {
+        id
+        name
+        children {
+            ... on MenuItem {
+                hasChildren,
+                displayName,
+                linkDestination {
+                    Value
+                }
+                children {
+                    ... on MenuItem {
+                        hasChildren,
+                        displayName,
+                        linkDestination {
+                            Value
                         }
+                        children {
+                            ... on MenuItem {
+                                hasChildren,
+                                displayName,
+                                linkDestination {
+                                    Value
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+`;
+
+const PrimaryNavigation = ({fields, navigationQuery, sitecoreContext}) => {
+    const queryData = navigationQuery.data || {};
+    const {items} = queryData;
+    const disconnectedModel = sitecoreContext.route.layoutId === 'available-in-connected-mode';
+
+    if(!disconnectedModel) {
+        return (
+            <nav className="navbar navbar-inverse">
+                <div className="container">
+                    <div className="row">
+                        <div id="navbar" className="navbar-collapse collapse">
+                            {
+                                items.children &&
+                                    BuildNavigation(items.children, items.hasChildren)
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        );
+    }
+    return (
+            <nav className="navbar navbar-inverse">
+                <div className="container">
+                    <div className="row">
+                        <div id="navbar" className="navbar-collapse collapse">
+                            <ul>
+                            {
+                                fields.links && fields.links.map((listItem, index) =>
+                                    <li key={`item-${index}`}>
+                                        <Link field={listItem.fields.linkDestination} aria-expanded="false">
+                                            <Text field={listItem.fields.displayName} />
+                                        </Link> 
+                                    </li>
+                                )
+                            }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
     );
+
 };
 
-function buildNavigation(items, hasChildren) {
+function BuildNavigation(items, hasChildren) {
     let className = hasChildren ? 'dropdown-menu' : 'nav navbar-nav';
 
     return (
         <ul className={className}>
             { 
                 items && items.map((listItem, index) =>
-                 <li className={listItem.fields.items ? 'dropdown' : ''} key={`item-${index}`}>
-                     <Link field={listItem.fields.linkDestination} className={listItem.fields.items ? 'dropdown-toggle' : ''} data-toggle={listItem.fields.items ? 'dropdown' : ''} aria-expanded="false">
-                        <Text field={listItem.fields.displayName} />
+                 <li className={listItem.hasChildren ? 'dropdown' : ''} key={`item-${index}`}>
+                    <Link field={listItem.linkDestination} className={listItem.hasChildren ? 'dropdown-toggle' : ''} data-toggle={listItem.hasChildren ? 'dropdown' : ''} aria-expanded="false">
+                        <Text field={listItem.displayName} />
                     </Link> 
                     {
-                        listItem.fields.items && 
-                            buildNavigation(listItem.fields.items, true)
+                        listItem.children && 
+                            BuildNavigation(listItem.children, true)
                     }
                  </li>
             )}
@@ -39,4 +105,4 @@ function buildNavigation(items, hasChildren) {
     );
 }
 
-export default PrimaryNavigation;
+export default GraphQLData(NavigationQuery, { name: 'navigationQuery' })(PrimaryNavigation);

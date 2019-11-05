@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const manifestPath = 'sitecore/definitions/components';
+const manifestPath = 'sitecore/definitions/';
 
 function create(componentName) {
     const template = `// eslint-disable-next-line no-unused-vars
     import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
     /**
      * Adds the ${componentName} component to the disconnected manifest.
-     * This function is invoked by convention (*.sitecore.ts) when 'jss manifest' is run.
+     * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
      * @param {Manifest} manifest Manifest instance to add components to
      */
     export default function(manifest) {
@@ -24,10 +24,55 @@ function create(componentName) {
         placeholders: ['exposed-placeholder-name']
         */
     });
-    }
-`;
+    }`;
 
-    const outputFilePath = path.join(manifestPath, `${componentName}.sitecore.js`);
+    return createOutputFile(template, componentName, manifestPath + "components");
+}
+
+function createTemplate(templateName) {
+    const template = `// eslint-disable-next-line no-unused-vars
+    import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+    /**
+     * Adds the ${templateName} template to the disconnected manifest.
+     * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
+     * @param {Manifest} manifest Manifest instance to add components to
+     */
+    export default function(manifest) {
+    manifest.addTemplate({
+        name: '${templateName}',
+        icon: SitecoreIcon.DocumentTag,
+        fields: [
+        { name: 'heading', type: CommonFieldTypes.SingleLineText },
+        ],
+    });
+    }`;
+
+    return createOutputFile(template, templateName, path, manifestPath + "templates");
+}
+
+function createRoute(routeName) {
+    const template = `// eslint-disable-next-line no-unused-vars
+    import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+    /**
+     * Adds the ${routeName} template to the disconnected manifest.
+     * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
+     * @param {Manifest} manifest Manifest instance to add components to
+     */
+    export default function(manifest) {
+    manifest.addRouteType({
+        name: '${routeName}',
+        icon: SitecoreIcon.DocumentTag,
+        fields: [
+        { name: 'heading', type: CommonFieldTypes.SingleLineText },
+        ],
+    });
+    }`;
+
+    return createOutputFile(template, routeName, manifestPath);
+}
+
+function createOutputFile(template, name, path) {
+    const outputFilePath = path.join(path, `${name}.sitecore.js`);
 
     if(fs.existsSync(outputFilePath)) {
         throw `Manifest definition path ${outputFilePath} already exists. Not creating manifest definition.`;
@@ -37,4 +82,4 @@ function create(componentName) {
     return outputFilePath;
 }
 
-module.exports = { create };
+module.exports = { create, createTemplate, createRoute };

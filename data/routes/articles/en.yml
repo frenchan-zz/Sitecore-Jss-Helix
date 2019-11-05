@@ -1,6 +1,9 @@
 fields:
   pageTitle: Articles
 placeholders:
+  jss-navigation:
+  - id: meta-nav-block
+  - id: primary-nav-block
   jss-main:
   - componentName: ContentBlock
     fields:

@@ -1,7 +1,7 @@
 id: navigation-meta-list-item-3
 displayName: Meta Link Item 3
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
-template: Navigation-ContentList-Item-Template
+template: MenuItem
 fields:
   displayName: Corporate
   linkDestination: 

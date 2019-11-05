@@ -1,7 +1,7 @@
 id: navigation-primary-list-articles-first
 displayName: First Article
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
-template: Navigation-ContentList-Item-Template
+template: MenuItem
 fields:
   displayName: First Article
   linkDestination: 

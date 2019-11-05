@@ -7,7 +7,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest'
  */
 export default function(manifest) {
   manifest.addTemplate({
-    name: 'Navigation-ContentList-Item-Template',
+    name: 'MenuItem',
     fields: [
       { name: 'displayName', displayName: 'Display Name', type: CommonFieldTypes.SingleLineText, section: 'Content' },
       { name: 'linkDestination', displayName: 'Link Destination', type: CommonFieldTypes.GeneralLink, section: 'Content'}

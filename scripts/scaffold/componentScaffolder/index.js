@@ -4,16 +4,26 @@ const componentGenerator = require('./generators/componentGenerator');
 const manifestGenerator = require('./generators/manifestGenerator');
 
 const layerOptions = ['Foundation', 'Feature', 'Project'];
+const definitionOptions = ['Component', 'Template', 'Route'];
 
 function create() {
     const layerName = layerOptions[readline.keyInSelect(layerOptions, "Choose layer:", {cancel: false})];
-    const componentName = readline.question(`\nWrite component name: \n`, {limit: null});
+    const definitionName = definitionOptions[readline.keyInSelect(definitionOptions, "Choose type:", {cancel : false})];
+    const componentName = readline.question(`\nWrite ${definitionName.toLocaleLowerCase()} name: \n`, {limit: null});
 
     validate(componentName);
-    manifestGenerator.create(componentName);
-    componentGenerator.create(componentName, layerName);
 
-    console.log(chalk.green(`Component ${componentName} has been scaffolded.`));
+    switch(definitionName) {
+        case 'Template':
+            manifestGenerator.createTemplate(componentName);
+        case 'Route': 
+            manifestGenerator.createRoute(componentName);
+        default:
+            manifestGenerator.create(componentName);
+            componentGenerator.create(componentName, layerName);
+    }
+
+    console.log(chalk.green(`${definitionName} ${componentName} has been scaffolded.`));
 }
 
 function validate(componentName) {
