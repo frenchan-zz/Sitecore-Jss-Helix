@@ -15,7 +15,7 @@ import './assets/app.css';
   but components added to inner placeholders are route-specific.
 */
 
-const Layout = ({ route }) => (
+const Layout = ({ route, path }) => (
   <React.Fragment>
     {/* react-helmet enables setting <head> contents, like title and OG meta tags */}
     <Helmet>
@@ -34,7 +34,7 @@ const Layout = ({ route }) => (
       {(getFieldValue(route.fields, 'canonical', false) && (
         <link rel="canonical" href={route.fields.canonical.value.toString()} />
       )) || (
-        <link rel="canonical" href={window.location.href} />
+        <link rel="canonical" href={path} />
       )}
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous"></link>
       

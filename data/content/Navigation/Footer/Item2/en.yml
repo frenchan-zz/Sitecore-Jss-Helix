@@ -2,7 +2,7 @@ id: navigation-footer-list-item-2
 displayName: Footer Link Item 2
 template: MenuItem
 fields:
-  displayName: Footer Link 2
+  linkTitle: Footer Link 2
   linkDestination: 
     href: /articles/first
     text:

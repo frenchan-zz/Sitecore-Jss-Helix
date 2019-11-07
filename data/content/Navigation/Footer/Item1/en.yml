@@ -3,7 +3,7 @@ displayName: Footer Link Item 1
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
 template: MenuItem
 fields:
-  displayName: Footer Link 1
+  linkTitle: Footer Link 1
   linkDestination: 
     href: /contact
     text:

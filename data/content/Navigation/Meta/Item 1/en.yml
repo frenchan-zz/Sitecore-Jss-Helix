@@ -3,7 +3,7 @@ displayName: Meta Link Item 1
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
 template: MenuItem
 fields:
-  displayName: Carrers
+  linkTitle: Carrers
   linkDestination: 
     href: /carrers
     text: Carrers

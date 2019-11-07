@@ -3,7 +3,7 @@ displayName: Home
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
 template: MenuItem
 fields:
-  displayName: Home
+  linkTitle: Home
   linkDestination: 
     href: /
     text: Home

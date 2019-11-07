@@ -3,7 +3,7 @@ displayName: Contact
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
 template: MenuItem
 fields:
-  displayName: Contact
+  linkTitle: Contact
   linkDestination: 
     href: /contact
     text: Contact

@@ -3,7 +3,7 @@ displayName: Articles
 # Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
 template: MenuItem
 fields:
-  displayName: Articles
+  linkTitle: Articles
   linkDestination: 
     href: /articles
     text: Articles

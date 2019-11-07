@@ -4,30 +4,37 @@ import GraphQLData from '../../../../Foundation/GraphQL/GraphQLData';
 import gql from 'graphql-tag'
 
 const NavigationQuery = gql`
-query ConnectedQuery($datasource: String!) {
-    data:datasource(value: $datasource) {
+query  {
+
+    data:item(path: "/sitecore/content/jss-app-helix/content/navigation/primary") {
         id
         name
         children {
             ... on MenuItem {
                 hasChildren,
-                displayName,
+                linkTitle {
+                    jss
+                },
                 linkDestination {
-                    Value
+                    jss
                 }
                 children {
                     ... on MenuItem {
                         hasChildren,
-                        displayName,
+                        linkTitle {
+                            jss
+                        },
                         linkDestination {
-                            Value
+                            jss
                         }
                         children {
                             ... on MenuItem {
                                 hasChildren,
-                                displayName,
+                                linkTitle {
+                                    jss
+                                },
                                 linkDestination {
-                                    Value
+                                    jss
                                 }
                             }
                         }
@@ -39,26 +46,31 @@ query ConnectedQuery($datasource: String!) {
 }
 `;
 
-const PrimaryNavigation = ({fields, navigationQuery, sitecoreContext}) => {
-    const queryData = navigationQuery.data || {};
-    const {items} = queryData;
-    const disconnectedModel = sitecoreContext.route.layoutId === 'available-in-connected-mode';
+const PrimaryNavigation = (props) => {
+    const graphQLResult = props.navigationQuery || {};
+    const { error, loading } = graphQLResult;
+    const { data } = graphQLResult;
+
+    const disconnectedModel = props.sitecoreContext.route.layoutId === 'available-in-connected-mode';
 
     if(!disconnectedModel) {
+        if(error) return(<p className="alert alert-danger">GraphQL query error: {error.toString()}</p>);
+        if(!data) return(<p>no data is found</p>);
+        if(!loading) {
         return (
             <nav className="navbar navbar-inverse">
                 <div className="container">
                     <div className="row">
                         <div id="navbar" className="navbar-collapse collapse">
                             {
-                                items.children &&
-                                    BuildNavigation(items.children, items.hasChildren)
+                                data.children &&
+                                    BuildNavigation(data.children)
                             }
                         </div>
                     </div>
                 </div>
             </nav>
-        );
+        );}
     }
     return (
             <nav className="navbar navbar-inverse">
@@ -67,10 +79,10 @@ const PrimaryNavigation = ({fields, navigationQuery, sitecoreContext}) => {
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul>
                             {
-                                fields.links && fields.links.map((listItem, index) =>
+                                props.fields.links && props.fields.links.map((listItem, index) =>
                                     <li key={`item-${index}`}>
                                         <Link field={listItem.fields.linkDestination} aria-expanded="false">
-                                            <Text field={listItem.fields.displayName} />
+                                            <Text field={listItem.fields.linkTitle} />
                                         </Link> 
                                     </li>
                                 )
@@ -92,8 +104,8 @@ function BuildNavigation(items, hasChildren) {
             { 
                 items && items.map((listItem, index) =>
                  <li className={listItem.hasChildren ? 'dropdown' : ''} key={`item-${index}`}>
-                    <Link field={listItem.linkDestination} className={listItem.hasChildren ? 'dropdown-toggle' : ''} data-toggle={listItem.hasChildren ? 'dropdown' : ''} aria-expanded="false">
-                        <Text field={listItem.displayName} />
+                    <Link field={listItem.linkDestination.jss} className={listItem.hasChildren ? 'dropdown-toggle' : ''} data-toggle={listItem.hasChildren ? 'dropdown' : ''} aria-expanded="false">
+                        <Text field={listItem.linkTitle.jss} />
                     </Link> 
                     {
                         listItem.children && 

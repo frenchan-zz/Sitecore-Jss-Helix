@@ -31,7 +31,7 @@ export default function addRoutesToManifest(manifest) {
         type: CommonFieldTypes.SingleLineText
       },
     ],
-    inherits: 'MetaData-Template',
+    inherits: ['MetaData-Template'],
     insertOptions: ['App Route'],
   });
 

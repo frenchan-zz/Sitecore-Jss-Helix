@@ -12,7 +12,7 @@ const MetaNavigation = ({ fields }) => (
                             fields.links.map((listItem, index) =>
                                 <li key={`item-${index}`}>
                                     <Link field={listItem.fields.linkDestination} target={listItem.fields.target}>
-                                        <Text field={listItem.fields.displayName} />
+                                        <Text field={listItem.fields.linkTitle} />
                                     </Link>
                                 </li>
                             )

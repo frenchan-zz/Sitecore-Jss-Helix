@@ -18,7 +18,7 @@ export default function(manifest) {
                 type: CommonFieldTypes.ContentList, 
                 source: `dataSource=/sitecore/content/${
                     packageJson.config.appName
-                }/Content/Navigation/Primary&IncludeTemplateForSelection=MenuItem` }
+                }/Content/Navigation/Primary` }
         ],
     });
 }

@@ -9,8 +9,9 @@ export default function(manifest) {
   manifest.addTemplate({
     name: 'MenuItem',
     fields: [
-      { name: 'displayName', displayName: 'Display Name', type: CommonFieldTypes.SingleLineText, section: 'Content' },
+      { name: 'linkTitle', displayName: 'Link Title', type: CommonFieldTypes.SingleLineText, section: 'Content' },
       { name: 'linkDestination', displayName: 'Link Destination', type: CommonFieldTypes.GeneralLink, section: 'Content'}
     ],
+    insertOptions: ['MenuItem']
   });
 }
