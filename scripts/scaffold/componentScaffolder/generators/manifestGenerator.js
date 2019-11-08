@@ -71,8 +71,8 @@ function createRoute(routeName) {
     return createOutputFile(template, routeName, manifestPath);
 }
 
-function createOutputFile(template, name, path) {
-    const outputFilePath = path.join(path, `${name}.sitecore.js`);
+function createOutputFile(template, name, filePath) {
+    const outputFilePath = path.join(filePath, `${name}.sitecore.js`);
 
     if(fs.existsSync(outputFilePath)) {
         throw `Manifest definition path ${outputFilePath} already exists. Not creating manifest definition.`;

@@ -1,50 +1,9 @@
 import * as React from 'react';
 import { Link, Text } from '@sitecore-jss/sitecore-jss-react';
 import GraphQLData from '../../../../Foundation/GraphQL/GraphQLData';
-import gql from 'graphql-tag'
+import { loader as gqlLoader } from 'graphql.macro';
 
-const NavigationQuery = gql`
-query  {
-
-    data:item(path: "/sitecore/content/jss-app-helix/content/navigation/primary") {
-        id
-        name
-        children {
-            ... on MenuItem {
-                hasChildren,
-                linkTitle {
-                    jss
-                },
-                linkDestination {
-                    jss
-                }
-                children {
-                    ... on MenuItem {
-                        hasChildren,
-                        linkTitle {
-                            jss
-                        },
-                        linkDestination {
-                            jss
-                        }
-                        children {
-                            ... on MenuItem {
-                                hasChildren,
-                                linkTitle {
-                                    jss
-                                },
-                                linkDestination {
-                                    jss
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-`;
+const NavigationQuery = gqlLoader('./query.graphql');
 
 const PrimaryNavigation = (props) => {
     const graphQLResult = props.navigationQuery || {};
@@ -55,7 +14,6 @@ const PrimaryNavigation = (props) => {
 
     if(!disconnectedModel) {
         if(error) return(<p className="alert alert-danger">GraphQL query error: {error.toString()}</p>);
-        if(!data) return(<p>no data is found</p>);
         if(!loading) {
         return (
             <nav className="navbar navbar-inverse">
@@ -73,25 +31,25 @@ const PrimaryNavigation = (props) => {
         );}
     }
     return (
-            <nav className="navbar navbar-inverse">
-                <div className="container">
-                    <div className="row">
-                        <div id="navbar" className="navbar-collapse collapse">
-                            <ul>
-                            {
-                                props.fields.links && props.fields.links.map((listItem, index) =>
-                                    <li key={`item-${index}`}>
-                                        <Link field={listItem.fields.linkDestination} aria-expanded="false">
-                                            <Text field={listItem.fields.linkTitle} />
-                                        </Link> 
-                                    </li>
-                                )
-                            }
-                            </ul>
-                        </div>
+        <nav className="navbar navbar-inverse">
+            <div className="container">
+                <div className="row">
+                    <div id="navbar" className="navbar-collapse collapse">
+                        <ul>
+                        {
+                            props.fields && props.fields.links && props.fields.links.map((listItem, index) =>
+                                <li key={`item-${index}`}>
+                                    <Link field={listItem.fields.linkDestination} aria-expanded="false">
+                                        <Text field={listItem.fields.linkTitle} />
+                                    </Link> 
+                                </li>
+                            )
+                        }
+                        </ul>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
     );
 
 };

@@ -1,0 +1,39 @@
+query  {
+    data:item(path: "/sitecore/content/jss-app-helix/content/navigation/primary") {
+        id
+        name
+        children {
+            ... on MenuItem {
+                hasChildren,
+                linkTitle {
+                    jss
+                },
+                linkDestination {
+                    jss
+                }
+                children {
+                    ... on MenuItem {
+                        hasChildren,
+                        linkTitle {
+                            jss
+                        },
+                        linkDestination {
+                            jss
+                        }
+                        children {
+                            ... on MenuItem {
+                                hasChildren,
+                                linkTitle {
+                                    jss
+                                },
+                                linkDestination {
+                                    jss
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

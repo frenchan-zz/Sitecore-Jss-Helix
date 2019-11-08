@@ -1,0 +1,11 @@
+query Search($searchCriteria: String) {
+    search(keyword:$searchCriteria) {
+        results {
+            items {
+                name,
+                path
+            },
+            totalCount
+        }
+    }
+}
