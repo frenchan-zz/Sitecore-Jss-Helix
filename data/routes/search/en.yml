@@ -1,0 +1,11 @@
+fields:
+  pageTitle: Search
+placeholders:
+  jss-navigation:
+  - id: meta-nav-block
+  - id: primary-nav-block
+  jss-main:
+  - componentName: QuickSearch
+  - componentName: SearchResults
+  jss-footer:
+  - id: footer-nav-block

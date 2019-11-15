@@ -17,7 +17,7 @@ class Autocomplete extends Component {
             activeSuggestion: 0,
             filteredSuggestions: [],
             showSuggestions: false,
-            userInput: ""
+            userInput: ''
         };
     }
 
@@ -35,6 +35,8 @@ class Autocomplete extends Component {
             showSuggestions: true,
             userInput: e.currentTarget.value
         });
+
+        this.props.onChange(userInput);
     }; 
 
     onClick = e => {
@@ -129,3 +131,5 @@ class Autocomplete extends Component {
           );
     }
 }
+
+export default Autocomplete

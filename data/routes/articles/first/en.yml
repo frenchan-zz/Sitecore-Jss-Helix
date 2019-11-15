@@ -12,6 +12,7 @@ placeholders:
   - id: meta-nav-block
   jss-main:
   - componentName: ArticleHeader
+  - componentName: QuickSearch
   jss-footer:
   - id: footer-nav-block
 

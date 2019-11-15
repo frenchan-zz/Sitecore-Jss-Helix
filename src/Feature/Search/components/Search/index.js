@@ -2,10 +2,9 @@ import * as React from 'react';
 import { Text } from '@sitecore-jss/sitecore-jss-react';
 
 const Search = ({ fields }) => (
-<div>
-    <p>Search Component</p>
-    <Text field={fields.heading} />
-</div>
+    <div>
+        <h1><Text field={fields.heading} /></h1>
+    </div>
 );
 export default Search;
     
