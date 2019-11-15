@@ -1,16 +1,15 @@
 import React from 'react';
 import AutoComplete from '../../../../Foundation/Search/Autocomplete';
 import FetchResults from '../../../../Foundation/Search/Actions';
-import packageJson from '../../../../../package.json';
 import { withRouter } from 'react-router-dom';
+import * as constants from '../../../../Foundation/Search/Constants';
 
 class QuickSearch extends React.Component {
    
     constructor(props) {
         super(props);
-        const source = `/sitecore/content/${
-                            packageJson.config.appName
-                        }/home*`;
+        
+        const source = constants.SEARCH_SOURCE;
 
         this.state = {
             userInput: '',

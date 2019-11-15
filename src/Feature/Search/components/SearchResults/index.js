@@ -1,16 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import packageJson from '../../../../../package.json';
 import FetchResults from '../../../../Foundation/Search/Actions';
+import * as constants from '../../../../Foundation/Search/Constants';
 
 class SearchResults extends React.Component {
     constructor(props) {
         super(props);
 
-        const source = `/sitecore/content/${
-            packageJson.config.appName
-        }/home*`;
-
+        const source = constants.SEARCH_SOURCE;
         const search = props.history.location.search;
         const params = new URLSearchParams(search);
 

@@ -46,6 +46,8 @@ class Autocomplete extends Component {
             showSuggestions: false,
             userInput: e.currentTarget.innerText
         });
+
+        this.props.onChange(e.currentTarget.innerText);
     };
 
     onKeyDown = e => {
