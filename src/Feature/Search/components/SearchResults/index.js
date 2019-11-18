@@ -62,8 +62,7 @@ class SearchResults extends React.Component {
             <div className="container">
                 <p>{results.length}</p>
                 {   
-                    results && 
-                    
+                    results &&
                     <ul>
                         {
                             results.map((item, index) => 
